@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import React, { useState } from 'react';
 import CityMap from './cityMap';
+import Weather from './Weather';
 
 function CityForm() {
     const [searchQuery, setSearchQuery] = useState(0);
@@ -26,6 +27,8 @@ function CityForm() {
             </Form>
             {location.place_id && <h2>The city is: {location.display_name} ,{location.lat}, {location.lon}</h2>}
             <CityMap location={location}/>
+            <Weather />
+
         </div>
     );
   }
