@@ -1,13 +1,8 @@
-import axios from "axios";
+function Weather() {
 
-function Weather(props) {
-    getWeather = async () =>{
-        const API = 'http://localhost:3001';
-        const response = await axios.get(`${API}/weather`);
-    }
     return (
       <div>
-
+        <p>hi</p>
       </div>
     );
   }
