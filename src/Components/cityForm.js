@@ -8,7 +8,7 @@ import Weather from './Weather';
 function CityForm() {
     const [searchQuery, setSearchQuery] = useState(0);
     const [location, setlocation] = useState(0);
-    //const [Weather, setWeather] = useState(null);
+    const [weatherData, setWeatherData] = useState([]);
 
     // State = {searchQuery:'',location: {}}
 
@@ -23,8 +23,16 @@ function CityForm() {
       }
     var  getWeatherData = async (lat,lon) =>{
         const API = `http://localhost:3001/weather?lat=${lat}&lon=${lon}&searchQuery=${searchQuery}`;
-        const res = await axios.get(API);
+        console.log(API);
+        try {
+                    const res = await axios.get(API);
+        console.log(res);
+        setWeatherData(res.data)
         return res;
+
+        } catch (error) {
+            console.error(error);
+        }
     }
     return (
         <div>
@@ -35,7 +43,7 @@ function CityForm() {
             </Form>
             {location.place_id && <h2>The city is: {location.display_name} ,{location.lat}, {location.lon}</h2>}
             <CityMap location={location}/>
-            <Weather/>
+            <Weather weatherData={weatherData}/>
 
         </div>
     );
