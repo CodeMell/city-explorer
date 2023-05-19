@@ -27,7 +27,7 @@ function CityForm() {
 
       }
     var  getWeatherData = async (lat,lon) =>{
-        const API = `http://localhost:3001/weather?lat=${lat}&lon=${lon}`;
+        const API = `https://city-explorer-y1ao.onrender.com/weather?lat=${lat}&lon=${lon}`;
         console.log(API);
         try {
         const res = await axios.get(API);
@@ -40,7 +40,7 @@ function CityForm() {
     }
 
     var  getMoviesData = async (searchQuery) =>{
-        const API = `http://localhost:3001/movies?searchQuery=${searchQuery}`;
+        const API = `https://city-explorer-y1ao.onrender.com/movies?searchQuery=${searchQuery}`;
         console.log(API);
         try {
         const res = await axios.get(API);
