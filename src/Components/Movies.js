@@ -1,6 +1,7 @@
 function Movies(props) {
     return (
       <div>
+        <h2>List of Movies</h2>
         {props.moviesData.results.map((movie,i) => {
           return(
             <li key={i}>
